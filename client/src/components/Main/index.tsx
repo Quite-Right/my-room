@@ -2,35 +2,60 @@ import React, { ReactElement } from 'react'
 import { AnimatePresence } from "framer-motion";
 import { Route, Switch, useLocation } from "react-router-dom";
 
-import V1 from "../V1";
-import NotFound from "../NotFound";
-import Component1 from "../TrashComponents/Component1";
-import Component2 from "../TrashComponents/Component2";
-import Component3 from "../TrashComponents/Component3";
-import Component4 from "../TrashComponents/Component4";
-import Component5 from "../TrashComponents/Component5";
+import Screen from "./Screens";
 
-import './style.scss';
+import Desktop from "./Screens/Desktop";
+import Games from "./Screens/Games";
+import Mobile from "./Screens/Mobile";
+import NotFound from "./Screens/NotFound";
+import Web from "./Screens/Web";
+
+import V1 from "../V1";
+
 
 interface Props {
 }
 
 export default function Main({ }: Props): ReactElement {
+    // возможно заменить на history
     const location = useLocation();
     return (
         <div className="__main">
             <AnimatePresence exitBeforeEnter={false}>
                 <Switch location={location} key={location.pathname}>
-                {/* <Switch> */}
-                    <Route path="/v.0.1.0" key="/v.0.1.0" exact component={V1} />
+                    <Route path="/v.0.1.0" key="/v.0.1.0" exact
+                        render={() => {
+                            return (
+                                <Screen><V1 /></Screen>
+                            )
+                        }}
+                    />
+                    <Route path="/Desktop" key="/Desktop" exact render={() => {
+                        return (
+                            <Screen><Desktop /></Screen>
+                        )
+                    }} />
+                    <Route path="/Games" key="/Games" exact render={() => {
+                        return (
+                            <Screen><Games /></Screen>
+                        )
+                    }} />
+                    <Route path="/Mobile" key="/Mobile" exact render={() => {
+                        return (
+                            <Screen><Mobile /></Screen>
+                        )
+                    }} />
+                    <Route path="/Web" key="/Web" exact render={() => {
+                        return (
+                            <Screen><Web /></Screen>
+                        )
+                    }} />
 
-                    <Route path="/1" key="/1" exact component={Component1} />
-                    <Route path="/2" key="/2" exact component={Component2} />
-                    <Route path="/3" key="/3" exact component={Component3} />
-                    <Route path="/4" key="/4" exact component={Component4} />
-                    <Route path="/5" key="/5" exact component={Component5} />
-
-                    <Route path="" exact component={NotFound} />
+                    <Route path="" exact render={() => {
+                        return (
+                            <Screen><NotFound /></Screen>
+                        )
+                    }} />
 
                 </Switch>
             </AnimatePresence>

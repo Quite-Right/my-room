@@ -15,25 +15,22 @@ export default function Header({ }: Props): ReactElement {
                 history.push("/v.0.1.0");
             }}>+</button> */}
             <div>
+                <NavLink to="/Web" >Web</NavLink>
+            </div>
+            <div>
+                <NavLink to="/Mobile" >Mobile</NavLink>
+            </div>
+            <div>
+                <NavLink to="/Desktop" >Desktop</NavLink>
+            </div>
+            <div>
+                <NavLink to="/Games" >Games</NavLink>
+            </div>
+            <div>
                 <NavLink to="/v.0.1.0" >/v.0.1.0</NavLink>
             </div>
             <div>
-                <NavLink to="/test" >/test</NavLink>
-            </div>
-            <div>
-                <NavLink to="/1" >/1</NavLink>
-            </div>
-            <div>
-                <NavLink to="/2" >/2</NavLink>
-            </div>
-            <div>
-                <NavLink to="/3" >/3</NavLink>
-            </div>
-            <div>
-                <NavLink to="/4" >/4</NavLink>
-            </div>
-            <div>
-                <NavLink to="/5" >/5</NavLink>
+                <NavLink to="/NotFound" >/NotFound</NavLink>
             </div>
         </div>
     )

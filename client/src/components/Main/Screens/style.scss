@@ -1,0 +1,13 @@
+@import "./Desktop/style.scss";
+@import "./Games/style.scss";
+@import "./Mobile/style.scss";
+@import "./NotFound/style.scss";
+@import "./Web/style.scss";
+
+.__screen {
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 120px);
+  color: white;
+  background-color: #1A1A1A;
+}
