@@ -1,20 +1,21 @@
 import React, { ReactElement } from 'react'
 import { NavLink, useHistory } from 'react-router-dom';
 
+import './style.scss';
+
 interface Props {
 
 }
 
 export default function Header({ }: Props): ReactElement {
-    const history = useHistory();
+    //const history = useHistory();
     return (
-        <div>
-            <button onClick={() => {
+        <div className="__header">
+            {/* <button onClick={() => {
                 history.push("/v.0.1.0");
-            }}>+</button>
+            }}>+</button> */}
             <div>
                 <NavLink to="/v.0.1.0" >/v.0.1.0</NavLink>
-
             </div>
             <div>
                 <NavLink to="/test" >/test</NavLink>

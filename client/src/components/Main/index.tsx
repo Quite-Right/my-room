@@ -1,38 +1,39 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement } from 'react'
+import { AnimatePresence } from "framer-motion";
+import { Route, Switch, useLocation } from "react-router-dom";
 
+import V1 from "../V1";
+import NotFound from "../NotFound";
+import Component1 from "../TrashComponents/Component1";
+import Component2 from "../TrashComponents/Component2";
+import Component3 from "../TrashComponents/Component3";
+import Component4 from "../TrashComponents/Component4";
+import Component5 from "../TrashComponents/Component5";
 
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+import './style.scss';
 
 interface Props {
-
 }
-
-interface Item {
-
-    id: number,
-    subtitle: string,
-    title: string,
-}
-
 
 export default function Main({ }: Props): ReactElement {
-    console.log(1)
-    const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
-    
-    const images: Array<string> = ["https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg", "https://cdn.eso.org/images/thumb300y/eso1907a.jpg"];
-    
-    const sas: any = selectedId ? console.log(setSelectedId) : "";
+    const location = useLocation();
+    return (
+        <div className="__main">
+            <AnimatePresence exitBeforeEnter={false}>
+                <Switch location={location} key={location.pathname}>
+                {/* <Switch> */}
+                    <Route path="/v.0.1.0" key="/v.0.1.0" exact component={V1} />
 
-    return (<div>
-        <AnimateSharedLayout type="crossfade">
-            {images.map((img, index) => {
-                // console.log(img)
-            return <motion.img  src={img} key={index} onClick={() => {setSelectedId(`${index}`)}} layoutId={`${index}`} />
-})}
-            <AnimatePresence>
-                {selectedId && <motion.img style={{position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", backgroundColor: "#333333"}} src={images[Number(selectedId)]} layoutId={selectedId} />}
+                    <Route path="/1" key="/1" exact component={Component1} />
+                    <Route path="/2" key="/2" exact component={Component2} />
+                    <Route path="/3" key="/3" exact component={Component3} />
+                    <Route path="/4" key="/4" exact component={Component4} />
+                    <Route path="/5" key="/5" exact component={Component5} />
+
+                    <Route path="" exact component={NotFound} />
+
+                </Switch>
             </AnimatePresence>
-            
-        </AnimateSharedLayout>
-    </div>)
+        </div>
+    )
 }
