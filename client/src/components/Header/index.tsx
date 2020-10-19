@@ -1,41 +1,34 @@
 import React, { ReactElement } from 'react'
 import { NavLink, useHistory } from 'react-router-dom';
-
-import './style.scss';
+const logo = require("../img/logo.ico");
 
 interface Props {
 
 }
 
 export default function Header({ }: Props): ReactElement {
-    //const history = useHistory();
     return (
-        <div className="__header">
-            {/* <button onClick={() => {
-                history.push("/v.0.1.0");
-            }}>+</button> */}
-            <div>
-                <NavLink to="/Web" >Web</NavLink>
-            </div>
-            <div>
-                <NavLink to="/Mobile" >Mobile</NavLink>
-            </div>
-            <div>
-                <NavLink to="/Desktop" >Desktop</NavLink>
-            </div>
-            <div>
-                <NavLink to="/Games" >Games</NavLink>
-            </div>
-            <div>
-                <NavLink to="/v.0.1.0" >/v.0.1.0</NavLink>
-            </div>
-            <div>
-                <NavLink to="/NotFound" >/NotFound</NavLink>
+        <div className="header">
+            <NavLink to="/Web" >
+                <div className="header-logo">
+                    <img src={logo} alt="Logo" />
+                    My Room
+                </div>
+            </NavLink>
+
+            <div className="header-nav">
+                <NavLink to="/Web" activeClassName="current">Web</NavLink>
+                <NavLink to="/Mobile" activeClassName="current">Mobile</NavLink>
+                <NavLink to="/Desktop" activeClassName="current">Desktop</NavLink>
+                <NavLink to="/Games" activeClassName="current">Games</NavLink>
             </div>
         </div>
     )
 }
-
+//const history = useHistory();
+// {/* <button onClick={() => {
+//                 history.push("/v.0.1.0");
+//             }}>+</button> */}
 
 
 
