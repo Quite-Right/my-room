@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-const logo = require("../img/gitLogo.png");
+const logo = require("../../img/gitLogo.png");
 
 interface Props {
 

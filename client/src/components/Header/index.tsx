@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
-import { NavLink, useHistory } from 'react-router-dom';
-const logo = require("../img/logo.ico");
+import { NavLink } from 'react-router-dom';
+const logo = require("../../img/logo.png");
+
 
 interface Props {
 
@@ -17,19 +18,11 @@ export default function Header({ }: Props): ReactElement {
             </NavLink>
 
             <div className="header-nav">
-                <NavLink to="/Web" activeClassName="current">Web</NavLink>
-                <NavLink to="/Mobile" activeClassName="current">Mobile</NavLink>
-                <NavLink to="/Desktop" activeClassName="current">Desktop</NavLink>
-                <NavLink to="/Games" activeClassName="current">Games</NavLink>
+                <NavLink to="/Web" activeClassName="__current">Web</NavLink>
+                <NavLink to="/Mobile" activeClassName="__current">Mobile</NavLink>
+                <NavLink to="/Desktop" activeClassName="__current">Desktop</NavLink>
+                <NavLink to="/Games" activeClassName="__current">Games</NavLink>
             </div>
         </div>
     )
 }
-//const history = useHistory();
-// {/* <button onClick={() => {
-//                 history.push("/v.0.1.0");
-//             }}>+</button> */}
-
-
-
-
