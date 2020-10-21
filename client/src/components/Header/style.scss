@@ -10,13 +10,13 @@
     }
     &-logo{
         color: $font;
-        font-size: 30px;
+        font-size: 24px;
         display: flex;
         flex-direction: row;
         align-items:  center;
         img{
-            padding: 0 20px;
-            height: 48px;
+            padding: 0 15px;
+            height: 40px;
         }
     }
     &-nav{
@@ -27,10 +27,14 @@
             text-decoration: none;
             font-size: 16px;
             margin: 0 30px;
-            padding: 18px 15px;
+            padding: 22px 15px 14px 15px;
+            border-bottom: 2px solid transparent;
+            &:hover{
+                border-bottom: 2px solid rgba($color: white, $alpha: 0.5);
+            }
         }
     }
 }
-a.current{
-    border-bottom: 2px solid white;
+a.__current{
+    border-bottom: 2px solid white !important;
 }
