@@ -1,8 +1,36 @@
-.__header{
+@import '../../scss/constants';
+.header{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     height: 60px;
     align-items:  center;
-    background-color: #121212;
+    background-color: $bg-dark;
+    >a{
+        text-decoration: none;
+    }
+    &-logo{
+        color: $font;
+        font-size: 30px;
+        display: flex;
+        flex-direction: row;
+        align-items:  center;
+        img{
+            padding: 0 20px;
+            height: 48px;
+        }
+    }
+    &-nav{
+        display: flex;
+        flex-direction: row;
+        a{
+            color: $font;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 30px;
+            padding: 18px 15px;
+        }
+    }
+}
+a.current{
+    border-bottom: 2px solid white;
 }
