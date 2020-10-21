@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react'
 import { motion } from "framer-motion";
 import { routerAnimations, routerTransition } from "../../../constants";
 
+
 interface Props {
     children?: React.ReactNode
 }

@@ -1,0 +1,103 @@
+.__app_opened_wrapper {
+    position: absolute;
+    top: -60px;
+    left: 0px;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.__app_opened {
+    box-shadow: 2px 2px 3px rgba(255,255,255, .2);
+    border: 10px solid  #121212;
+    border-bottom: 5px solid  #121212;
+    border-top: 2px solid  #121212;
+    border-left: 3px solid  #121212;
+    z-index: 2;
+    max-width: 1280px;
+    width: 100vw;
+    // height: calc(100vh - 120px);
+    max-height: calc(100vh - 140px);
+   
+    background-color: #1a1a1a;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    overflow-y: scroll;
+    
+    scrollbar-width: 0px;
+    @media screen and (max-width: 1422px) {
+        max-width: 90%;
+    }
+    @media screen and (max-width: 1102px) {
+        min-width: 992px;   
+    }
+    @media screen and (max-width: 1008px) {
+        max-width: calc(100vw - 16px);
+        max-height: calc(100vh - 16px);;
+        min-width: auto; 
+    }
+}
+.__app_banner {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px 5px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    background-position: center center;
+}
+
+.__app_close_btn {
+    margin-left: auto;
+    padding: 5px;
+     display: flex;
+     border-radius: 50%;
+     width: 30px;
+     height: 30px;
+     background: #1a1a1a;
+     border-right: 1px solid #525252;
+     border-bottom: 1px solid #525252;
+     &:hover {
+        background: #525252;
+        border-right: none;
+        border-bottom: none;
+        box-shadow: inset 0 1px 4px  rgba(12,12, 12, 1);
+     }
+}
+
+.__app_name {
+    font-size: 64px;
+    margin-top: auto;
+}
+
+.__app_description {
+    padding: 10px 10px 10px 20px;
+}
+
+.style-7::-webkit-scrollbar {
+    // width: 10px;
+    width: 0px;
+	background-color: #F5F5F5;
+}
+
+.style-7::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+    // border-radius: 10px;
+    border-radius: 0px;
+}
+
+.style-7::-webkit-scrollbar-thumb {
+    // border-radius: 10px;
+    border-radius: 0px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(122,153,217)),
+									   color-stop(0.72, rgb(73,125,189)),
+									   color-stop(0.86, rgb(28,58,148)));
+}
