@@ -8,4 +8,48 @@
   height: calc(100vh - 120px);
   color: white;
   background-color: #1A1A1A;
+  display: flex;
 }
+
+.__app_wrapper{
+  padding: 30px 0 40px;
+  margin: auto;
+  width: 1280px;
+  height: calc(100vh - 120px);
+  // overflow-y: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: white;
+  }
+  
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+  }
+}
+
+// .__app_wrapper_scroll {
+//   padding: 0;
+//   margin: auto;
+
+//   width: 1280px;
+//   height: calc(100vh -  120px);
+//   overflow-y: auto;
+//   overflow-x: hidden;
+//   display: flex;
+//   flex-wrap: wrap;
+//   align-content: start;
+// }

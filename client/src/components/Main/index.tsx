@@ -2,10 +2,11 @@ import React, { ReactElement, useState } from 'react'
 import { AnimatePresence } from "framer-motion";
 import { Route, Switch, useLocation, useHistory, Redirect } from "react-router-dom";
 
-import { Directions, App } from "../../constants";
+import { Directions, App, TagType, BtnColor } from "../../constants";
 
 import Screen from "./Screens";
 import NotFound from './NotFound';
+import Tag from '../ReusableComponents/Tag';
 
 
 
@@ -29,20 +30,28 @@ export default function Main({ }: Props): ReactElement {
         "/Mobile",
         "/Desktop",
         "/Games",
-        "/App"
     ];
     const Apps: Apps = {
         "/Web": [
             {
-                id: "1",
+                id: "shortLinksApp",
                 name: "Short Links",
                 image: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
-                tag: "new",
-                description: "description",
-                changelog: "changelog",
-                launchLink: "launchlink",
-                githubLink: "123",
-            }
+                tag: {
+                    tag: "tech",
+                    tagType: TagType.break,
+                },
+                description: "App for creating short and pretty links for your website or app",
+                changelog: "This app is being developed",
+                githubLink: "https://github.com/Quite-Right/shortLinks.git",
+                btns: [
+                    {
+                        text: "Comming soon",
+                        type: BtnColor.grey,
+                        link:"",
+                    }
+                ]
+            },
         ],
         "/Desktop": [
         ],

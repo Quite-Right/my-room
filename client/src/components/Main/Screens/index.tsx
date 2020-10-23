@@ -1,4 +1,5 @@
-import React, { ReactElement, useState } from 'react'
+import React, { Children, ReactElement, useState } from 'react'
+import ReactDOM from 'react-dom';
 import { useLocation, useHistory } from "react-router-dom";
 
 import { Swipeable } from 'react-swipeable';
@@ -6,6 +7,7 @@ import { Swipeable } from 'react-swipeable';
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { routerAnimationsLeft, routerAnimationsRight, routerTransition, Directions, App } from "../../../constants";
 
+import AppIco from "./AppIco";
 import AppOpened from "./AppOpened";
 import CommingSoon from './CommingSoon';
 
@@ -18,12 +20,12 @@ interface Props {
 
 
 
-export default function Screen({ routes, direction, setDirection, apps}: Props): ReactElement {
+export default function Screen({ routes, direction, setDirection, apps }: Props): ReactElement {
     const location = useLocation();
     const history = useHistory();
     const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
-    
-    
+
+
     return (
         <motion.div
             exit="exit"
@@ -37,7 +39,6 @@ export default function Screen({ routes, direction, setDirection, apps}: Props):
             <AnimateSharedLayout type="crossfade" >
                 {/* Apps */}
                 <Swipeable
-
                     className="__app_wrapper"
                     onSwipedLeft={() => {
                         setDirection(Directions.right);
@@ -49,31 +50,39 @@ export default function Screen({ routes, direction, setDirection, apps}: Props):
                         else
                             history.push(routes[current + 1])
                     }}
-                onSwipedRight={() => {
-                    setDirection(Directions.left);
-                    const current = routes.indexOf(location.pathname);
-                    if (current === 0)
-                     history.push(routes[routes.length - 1]);
-                    else
-                        history.push(routes[current - 1])
-                }}
+                    onSwipedRight={() => {
+                        setDirection(Directions.left);
+                        const current = routes.indexOf(location.pathname);
+                        if (current === 0)
+                            history.push(routes[routes.length - 1]);
+                        else
+                            history.push(routes[current - 1])
+                    }}
                 >
                     {apps.map((app, index) => {
-                        return <motion.img style={{ width: 200, height: 200 }} src={app.image} key={index} onClick={() => { setSelectedId(`${index}`) }} layoutId={`${index}`} />
+                        return <AppIco
+                            key={index}
+                            image={app.image}
+                            name={app.name}
+                            tag={app.tag}
+                            open={setSelectedId}
+                            layoutId={`${index}`}
+                        />
                     })}
-                    {apps.length === 0 ? < CommingSoon/>: ""}
+                    {apps.length === 0 ? < CommingSoon /> : ""}
                 </Swipeable>
                 <AnimatePresence>
                     {selectedId && <AppOpened
-                        layoutId={selectedId}
-                        image={apps[Number(selectedId)].image}
-                        close={setSelectedId}
-                        name={apps[Number(selectedId)].name}
-                        description={apps[Number(selectedId)].description}
-                        changelog={apps[Number(selectedId)].changelog}
-                        launchLink={apps[Number(selectedId)].launchLink}
-                        githubLink={apps[Number(selectedId)].githubLink}
-                    />
+                            layoutId={selectedId}
+                            image={apps[Number(selectedId)].image}
+                            close={setSelectedId}
+                            name={apps[Number(selectedId)].name}
+                            description={apps[Number(selectedId)].description}
+                            changelog={apps[Number(selectedId)].changelog}
+                            githubLink={apps[Number(selectedId)].githubLink}
+                            btns={apps[Number(selectedId)].btns}
+                        />
+
                     }
                 </AnimatePresence>
 

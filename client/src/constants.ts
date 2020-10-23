@@ -23,11 +23,14 @@ export interface App {
     id: string,
     name: string,
     image: string,
-    tag: string,
+    tag: {
+        tag: string;
+        tagType: TagType;
+    },
     description: string,
     changelog: string,
-    launchLink: string,
     githubLink?: string,
+    btns?: Array<Btn>,
 }
 
 export enum BtnColor {
@@ -35,4 +38,18 @@ export enum BtnColor {
     red="red",
     grey="grey",
     blue="blue"
+}
+
+export enum TagType {
+    new = "new",
+    update = "update",
+    break = "break",
+    closed = "closed",
+}
+
+export interface Btn {
+    text: string;
+    type: BtnColor;
+    link?: string;
+    onClick?(): void;
 }

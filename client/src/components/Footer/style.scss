@@ -5,6 +5,8 @@
     align-items:  center;
     height: 60px;
     background-color: $bg-dark;
+    position: relative;
+    z-index: 2;
     a{
         display: flex;
         flex-direction: row;

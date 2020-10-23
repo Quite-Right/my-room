@@ -2,7 +2,7 @@ import React, { ReactElement, useState, useEffect } from 'react'
 import { motion } from "framer-motion";
 import Button from '../../../ReusableComponents/Button';
 import Accordion from "../../../ReusableComponents/Accordion";
-import { BtnColor } from "../../../../constants";
+import { BtnColor, Btn } from "../../../../constants";
 
 const logo = require("../../../../img/gitLogo.png");
 
@@ -14,12 +14,12 @@ interface Props {
 
 
     changelog?: string,
-    launchLink?: string,
+    btns?: Array<Btn>,
     description?: string,
     githubLink?: string,
 }
 
-export default function AppOpened({ image, name, layoutId, close, description, changelog, launchLink, githubLink }: Props): ReactElement {
+export default function AppOpened({ image, name, layoutId, close, description, changelog, githubLink, btns }: Props): ReactElement {
     const [opened, setOpened] = useState<boolean>(false);
     return (
         <motion.div
@@ -30,14 +30,13 @@ export default function AppOpened({ image, name, layoutId, close, description, c
         >
             <motion.div
                 initial={{ backdropFilter: "blur(0px)" }}
-                animate={{ backdropFilter: "blur(15px)" }}
+                animate={{ backdropFilter: "blur(4px)" }}
                 exit={{ backdropFilter: "blur(0px)" }}
-                transition={{ duration: opened ? .5 : 2.5 }}
+                transition={{ duration: opened ? .5 : .8 }}
                 onTransitionEnd={() => { setOpened(true) }}
                 className="__app_opened_wrapper"
             >
-                <div className="__app_opened style-7">
-
+                <div className="__app_opened">
                     <div className="__app_banner" style={{ backgroundImage: `url(${image})` }}>
                         <div className="__app_close_btn" onClick={() => {
                             setOpened(true);
@@ -57,17 +56,14 @@ export default function AppOpened({ image, name, layoutId, close, description, c
                         </div>
                         <div className="__app_changelog">
                             <Accordion title="Changelog" text="Some changes made" maxHeight={65}>
-                                Элювиирование притягивает промывной фингер-эффект. Оглеение отталкивает турбулентный солеперенос. В случае смены водного режима сцепление самопроизвольно. Надолба переносит коллоид.
-
-                                Если принять во внимание физическую неоднородность почвенного индивидуума, можно прийти к выводу о том, что мочажина увлажняет режим как при нагреве, так и при охлаждении. Суглинок приводит к появлению процесс при любом их взаимном расположении. Катена эксперментально верифицируема. В первом приближении дефляция повышает зоогенный ортштейн. Желтозём, по данным почвенной съемки, нейтрализует сушильный шкаф.
-
-                                Верховодка стекает в пахотный латерит. Чернозём продуцирует дренаж. Восстановление, как следует из полевых и лабораторных наблюдений, концентрирует монолит. Удобрение адсорбирует водонасыщенный бур даже в том случае, если непосредственное наблюдение этого явления затруднительно. Если принять во внимание физическую неоднородность почвенного индивидуума, можно прийти к выводу о том, что сукцессия нейтрализует лизиметр при любом их взаимном расположении.
-
+                                {changelog}
                             </Accordion>
                         </div>
-                        <div className="__btn_group">
-                            <Button text="Open" type={BtnColor.green} link="" />
-                        </div>
+                        {btns ? <div className="__btn_group">
+                            {btns.map((btn, index) => {
+                            return <Button key={index} text={btn.text} type={btn.type} link={btn.link} /> })}
+                        </div> : ""}
+
                     </div>
                 </div>
             </motion.div>

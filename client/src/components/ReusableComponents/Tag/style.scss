@@ -1,0 +1,18 @@
+.__tag {
+  &__new {
+    background: $green_main;
+    @include tag;
+  }
+  &__update {
+    background: $blue_main;
+    @include tag;
+  }
+  &__closed {
+    background: $red_main;
+    @include tag;
+  }
+  &__break {
+    background: $grey_main;
+    @include tag;
+  }
+}

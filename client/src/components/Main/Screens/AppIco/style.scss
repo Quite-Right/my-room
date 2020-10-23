@@ -1,74 +1,78 @@
-.__wrapper{
-    display: flex;
-    flex-direction: row;
-    &__app{
-        width: 150px;
-        height: 150px; 
-        position: relative;
-        margin: 15px;
-        border-radius: 10px;
-        &:hover{
-            cursor: pointer;
-        }
-        &__new{
-            background: green;
-            @include tag;
-        }
-        &__update{
-            background: blue;
-            @include tag;
-        }
-        &__closed{
-            background: red;
-            @include tag;
-        }
-        &__break{
-            background: grey;
-            @include tag;
-        }
-        &__name{
-            position: absolute;
-            bottom: 5px;
-            left: 5px;
-            color:black;
-        }
-    }
+.__app_ico {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  margin: 16px;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__name {
+    font-size: 20px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    color: #ffffff;
+  }
 }
-.__wrapper2{
+
+.__wrapper {
+  display: flex;
+  flex-direction: row;
+  &__app {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin: 15px;
+    border-radius: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &__name {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      color: black;
+    }
+  }
+}
+.__wrapper2 {
+  display: flex;
+  flex-direction: row;
+  &__cell {
     display: flex;
-    flex-direction: row;
-    &__cell{
-        display: flex;
-        flex-direction: column;
-        margin: 15px;
+    flex-direction: column;
+    margin: 15px;
+  }
+  &__app {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    border-radius: 10px;
+    &:hover {
+      cursor: pointer;
     }
-    &__app{
-        width: 150px;
-        height: 150px; 
-        position: relative;
-        border-radius: 10px;
-        &:hover{
-            cursor: pointer;
-        }
-        &__new{
-            background: green;
-            @include tag;
-        }
-        &__update{
-            background: blue;
-            @include tag;
-        }
-        &__closed{
-            background: red;
-            @include tag;
-        }
-        &__break{
-            background: grey;
-            @include tag;
-        }
+    &__new {
+      background: green;
+      @include tag;
     }
-    &__name{
-        margin: auto;
-        color:white;
+    &__update {
+      background: blue;
+      @include tag;
     }
+    &__closed {
+      background: red;
+      @include tag;
+    }
+    &__break {
+      background: grey;
+      @include tag;
+    }
+  }
+  &__name {
+    margin: auto;
+    color: white;
+  }
 }

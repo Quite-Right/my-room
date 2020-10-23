@@ -1,12 +1,9 @@
 import React, { ReactElement } from 'react'
-import {BtnColor} from "../../../constants";
+import {BtnColor, Btn} from "../../../constants";
 
 
-interface Props {
-    text: string;
-    type: BtnColor;
-    link?: string;
-    onClick?(): void;
+interface Props extends Btn {
+    
 }
 
 export default function Button({ text, link, type, onClick }: Props): ReactElement {
