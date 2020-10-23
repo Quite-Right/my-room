@@ -28,7 +28,8 @@ export default function Main({ }: Props): ReactElement {
         "/Web",
         "/Mobile",
         "/Desktop",
-        "/Games"
+        "/Games",
+        "/App"
     ];
     const Apps: Apps = {
         "/Web": [
