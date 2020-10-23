@@ -11,6 +11,7 @@ import Games from "./Screens/Games";
 import Mobile from "./Screens/Mobile";
 import NotFound from "./Screens/NotFound";
 import Web from "./Screens/Web";
+import App from "./Screens/AppIco";
 
 import V1 from "../V1";
 
@@ -30,7 +31,8 @@ export default function Main({ }: Props): ReactElement {
         "/Web",
         "/Mobile",
         "/Desktop",
-        "/Games"
+        "/Games",
+        "/App"
     ];
     // const routeComponents : routeComponentsInt = {
     //     "/Web": <Web />,
@@ -43,6 +45,7 @@ export default function Main({ }: Props): ReactElement {
         "/Mobile": Mobile,
         "/Desktop": Desktop,
         "/Games": Games,
+        "/App": App,
     };
     return (
         <Swipeable className="__main"
@@ -88,6 +91,7 @@ export default function Main({ }: Props): ReactElement {
                                         || route === "/Mobile" && <Mobile />
                                         || route === "/Desktop" && <Desktop />
                                         || route === "/Games" && <Games />
+                                        || route === "/App" && <App />
                                     }
                                 </Screen>
                             )
