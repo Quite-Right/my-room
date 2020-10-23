@@ -1,0 +1,22 @@
+.__not-found {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+        &_gif {
+            max-width: 500px;
+            width: 100%;
+            margin: auto;
+        }
+        &_text {
+            // text-indent: 16px;
+            text-align: center;
+            max-width: 500px;
+            &>a {
+                color: #ffffff;
+            }
+            font-size: 20px;
+            margin: 20px auto;
+            padding: 0px 8px;
+        }
+}

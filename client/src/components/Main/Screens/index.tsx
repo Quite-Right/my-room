@@ -24,8 +24,8 @@ export default function Screen({ routes, direction, setDirection, apps }: Props)
     const location = useLocation();
     const history = useHistory();
     const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
-
-
+    console.log(Directions.right)
+    console.log(location, direction)
     return (
         <motion.div
             exit="exit"

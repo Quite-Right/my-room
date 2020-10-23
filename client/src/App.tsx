@@ -14,8 +14,7 @@ function Wrapper() {
 }
 
 function App() {
-  const location = useLocation();
-  console.log(location)
+  
   return (
     <div className="App" style={{ width: "100vw", overflowX: "hidden" }}>
       <Header></Header>

@@ -38,7 +38,7 @@ export default function Main({ }: Props): ReactElement {
                 name: "Short Links",
                 image: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
                 tag: {
-                    tag: "tech",
+                    tag: "development",
                     tagType: TagType.break,
                 },
                 description: "App for creating short and pretty links for your website or app",
