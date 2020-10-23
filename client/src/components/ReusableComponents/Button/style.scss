@@ -1,0 +1,48 @@
+.__btn {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 3px 15px 4px;
+  border-radius: 5px;
+  display: inline-block;
+
+  &:active {
+    box-shadow: inset 1px 1px 5px #333333;
+  }
+
+  &.__green {
+    background-color: $green_main;
+    &:hover {
+      background-color: $green_secondary;
+    }
+    &:active {
+      background-color: $green_main;
+    }
+  }
+  &.__red {
+    background-color: $red_main;
+    &:hover {
+      background-color: $red_secondary
+    }
+    &:active {
+      background-color: $red_main;
+    }
+  }
+  &.__grey {
+    background-color: $grey_main;
+    &:hover {
+      background-color: $grey_secondary;
+    }
+    &:active {
+      background-color: $grey_main;
+    }
+  }
+  &.__blue {
+    background-color: $blue_main;
+    &:hover {
+      background-color: $blue_secondary;
+    }
+    &:active {
+      background-color: $blue_main;
+    }
+  }
+}

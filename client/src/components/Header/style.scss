@@ -1,4 +1,3 @@
-@import '../../scss/constants';
 .header{
     display: flex;
     flex-direction: row;
@@ -19,15 +18,17 @@
             height: 40px;
         }
     }
+    // 22 + 21 + 14 + 2
+    // 20 + 27 + 14 + 2
     &-nav{
         display: flex;
         flex-direction: row;
         a{
             color: $font;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 20px;
             margin: 0 30px;
-            padding: 22px 15px 14px 15px;
+            padding: 17px 15px 13px 15px;
             border-bottom: 2px solid transparent;
             &:hover{
                 border-bottom: 2px solid rgba($color: white, $alpha: 0.5);
