@@ -20,10 +20,10 @@ export default function Header({ }: Props): ReactElement {
             </NavLink>
 
             <div className="header-nav">
-                <NavLink className="header-nav__item" to={{ pathname: "/Web", state: { prev: location.pathname } }} activeClassName="__current">Web</NavLink>
-                <NavLink className="header-nav__item" to={{ pathname: "/Mobile", state: { prev: location.pathname } }} activeClassName="__current">Mobile</NavLink>
-                <NavLink className="header-nav__item" to={{ pathname: "/Desktop", state: { prev: location.pathname } }} activeClassName="__current">Desktop</NavLink>
-                <NavLink className="header-nav__item" to={{ pathname: "/Games", state: { prev: location.pathname } }} activeClassName="__current">Games</NavLink>
+                <NavLink className="header-nav__item" to="/Web" activeClassName="__current">Web</NavLink>
+                <NavLink className="header-nav__item" to="/Mobile" activeClassName="__current">Mobile</NavLink>
+                <NavLink className="header-nav__item" to="/Desktop" activeClassName="__current">Desktop</NavLink>
+                <NavLink className="header-nav__item" to="/Games" activeClassName="__current">Games</NavLink>
             </div>
             <div className="header-nav__mobile">
                 <div onClick={() => { setToggle(!toggle) }}>
