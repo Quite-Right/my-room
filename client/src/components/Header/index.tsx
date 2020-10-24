@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom';
-const logo = require("../../img/logo.png");
 
+const logo = require("../../img/logo.png");
 
 interface Props {
 
@@ -9,6 +9,7 @@ interface Props {
 
 export default function Header({ }: Props): ReactElement {
     const location = useLocation();
+    const [toggle, setToggle] = useState(true);
     return (
         <div className="header">
             <NavLink to="/Web" >
@@ -19,10 +20,27 @@ export default function Header({ }: Props): ReactElement {
             </NavLink>
 
             <div className="header-nav">
-                <NavLink to={{pathname: "/Web", state: {prev: location.pathname}}} activeClassName="__current">Web</NavLink>
-                <NavLink to={{pathname: "/Mobile", state: {prev: location.pathname}}} activeClassName="__current">Mobile</NavLink>
-                <NavLink to={{pathname: "/Desktop", state: {prev: location.pathname}}} activeClassName="__current">Desktop</NavLink>
-                <NavLink to={{pathname: "/Games", state: {prev: location.pathname}}} activeClassName="__current">Games</NavLink>
+                <NavLink className="header-nav__item" to={{ pathname: "/Web", state: { prev: location.pathname } }} activeClassName="__current">Web</NavLink>
+                <NavLink className="header-nav__item" to={{ pathname: "/Mobile", state: { prev: location.pathname } }} activeClassName="__current">Mobile</NavLink>
+                <NavLink className="header-nav__item" to={{ pathname: "/Desktop", state: { prev: location.pathname } }} activeClassName="__current">Desktop</NavLink>
+                <NavLink className="header-nav__item" to={{ pathname: "/Games", state: { prev: location.pathname } }} activeClassName="__current">Games</NavLink>
+            </div>
+            <div className="header-nav__mobile">
+                <div onClick={() => { setToggle(!toggle) }}>
+                    <div >
+                        <svg viewBox="0 -53 384 384" height="25px" width="25px" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#fff" d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+                        <path fill="#fff" d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+                        <path fill="#fff" d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+                        </svg>
+                    </div>
+                    <div className={`header-nav__mobile__toggle ${toggle ? "__active" : ""}`}>
+                        <NavLink className="header-nav__mobile__item" to="/Web" activeClassName="__current">Web</NavLink>
+                        <NavLink className="header-nav__mobile__item" to="/Mobile" activeClassName="__current">Mobile</NavLink>
+                        <NavLink className="header-nav__mobile__item" to="/Desktop" activeClassName="__current">Desktop</NavLink>
+                        <NavLink className="header-nav__mobile__item" to="/Games" activeClassName="__current">Games</NavLink>
+                    </div>
+                </div>
             </div>
         </div>
     )

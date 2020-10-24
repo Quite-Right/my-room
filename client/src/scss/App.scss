@@ -7,8 +7,7 @@
 @import "../components/Main/style.scss";
 @import "../components/ReusableComponents/style.scss";
 
-
-
 .App {
     overflow: hidden;   
+    user-select: none;   
 }
