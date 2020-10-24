@@ -24,8 +24,6 @@ export default function Screen({ routes, direction, setDirection, apps }: Props)
     const location = useLocation();
     const history = useHistory();
     const [selectedId, setSelectedId] = useState<string | undefined>(undefined);
-    console.log(Directions.right)
-    console.log(location, direction)
     return (
         <motion.div
             exit="exit"
@@ -41,6 +39,7 @@ export default function Screen({ routes, direction, setDirection, apps }: Props)
                 <Swipeable
                     className="__app_wrapper"
                     onSwipedLeft={() => {
+                        console.log(1)
                         setDirection(Directions.right);
                         // определяем текущий роут
                         const current = routes.indexOf(location.pathname);
