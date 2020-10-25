@@ -14,7 +14,7 @@ export default function Header({ }: Props): ReactElement {
         <div className="header">
             <NavLink to="/Web" >
                 <div className="header-logo">
-                    <img src={logo} alt="Logo" />
+                    <img style={{ height: "30px"}} src={logo} alt="Logo" />
                     My Room
                 </div>
             </NavLink>
